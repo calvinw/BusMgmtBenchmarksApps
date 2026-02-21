@@ -21,8 +21,8 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
-      <div className="w-full max-w-4xl space-y-8 bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+    <div className="min-h-screen bg-green-600 flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-4xl space-y-8 bg-green-400 p-8 rounded-xl shadow-lg border border-green-500">
         <Header />
         <TodoForm onAdd={addTodo} />
         <TodoList 
