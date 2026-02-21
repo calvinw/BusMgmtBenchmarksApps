@@ -21,17 +21,6 @@ fi
 
 echo ""
 
-# Install opencode (AI coding assistant)
-if command -v opencode &>/dev/null; then
-  echo "→ opencode already installed, skipping."
-else
-  echo "→ Installing opencode..."
-  bash "$WORKSPACE/install_opencode.sh"
-  echo "✓ opencode installed."
-fi
-
-echo ""
-
 # Set up dev server auto-start hook in ~/.bashrc
 echo "→ Setting up dev server hook..."
 bash "$WORKSPACE/.devcontainer/setup.sh"
