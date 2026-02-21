@@ -1,18 +1,36 @@
 import { useState } from 'react'
+import { Header } from './components/Header'
+import { TodoForm } from './components/TodoForm'
+import { TodoList } from './components/TodoList'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [todos, setTodos] = useState([])
+
+  const addTodo = (text) => {
+    setTodos([...todos, { id: Date.now(), text, completed: false }])
+  }
+
+  const toggleTodo = (id) => {
+    setTodos(todos.map(todo => 
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
+    ))
+  }
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id))
+  }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 gap-6">
-      <h1 className="text-4xl font-bold text-gray-800">Hello, React + Tailwind</h1>
-      <p className="text-gray-500">You clicked {count} times</p>
-      <button
-        onClick={() => setCount(count + 1)}
-        className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-      >
-        Click me
-      </button>
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-4xl space-y-8 bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+        <Header />
+        <TodoForm onAdd={addTodo} />
+        <TodoList 
+          todos={todos} 
+          onToggle={toggleTodo} 
+          onDelete={deleteTodo} 
+        />
+      </div>
     </div>
   )
 }
