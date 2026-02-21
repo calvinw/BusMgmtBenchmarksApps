@@ -31,19 +31,24 @@ bash $CODESPACE_VSCODE_FOLDER/start-dev.sh
 
 ### 2. Install an AI Coding Assistant
 
-After the dev server is running, install whichever AI coding tool you have been assigned:
+After the dev server is running, run the setup script and pick your tool from the menu:
 
-**Claude Code**
 ```bash
-bash install_claude_code.sh
+bash setup_agent_tool.sh
 ```
 
-**Opencode**
-```bash
-bash install_opencode.sh
+```
+Which AI coding tool would you like to install?
+
+  1) Claude Code
+  2) Opencode
+  3) Gemini CLI
+  4) Codex CLI
+
+Enter number [1-4]:
 ```
 
-Then follow the authentication steps for the tool you installed.
+Then follow the authentication prompts for the tool you chose.
 
 ### 3. Terminal Sharing (upterm)
 
