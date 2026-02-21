@@ -1,6 +1,6 @@
 {
   "name": "BusMgmtBenchmarksApps",
-  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "postCreateCommand": "bash .devcontainer/postcreate.sh",
   "forwardPorts": [5173],
   "portsAttributes": {
     "5173": {
