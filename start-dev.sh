@@ -46,6 +46,17 @@ TARGET="$WORKSPACE/$folder"
 echo ""
 echo "→ Serving: $folder"
 
+# Stop any previously running dev server
+if [ -f ~/.dev-server.pid ]; then
+  OLD_PID=$(cat ~/.dev-server.pid)
+  if kill -0 "$OLD_PID" 2>/dev/null; then
+    echo "→ Stopping previous server (PID $OLD_PID)..."
+    kill "$OLD_PID" 2>/dev/null
+    sleep 1
+  fi
+  rm -f ~/.dev-server.pid
+fi
+
 if [ -f "$TARGET/package.json" ] && grep -q '"dev"' "$TARGET/package.json"; then
   # Vite (or other npm-based) project
   echo "→ Vite project detected — installing dependencies..."
